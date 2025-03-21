@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 import LargeImage from "../Components/LargeImage";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -29,6 +30,9 @@ function Home() {
     <div className="home-container dark-mode">
       <div className="Header-wrap" data-aos="fade-down">
         <Header />
+      </div>
+      <div className="Footer-wrap">
+        <Footer />
       </div>
     </div>
   );
