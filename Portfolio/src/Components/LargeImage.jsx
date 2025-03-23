@@ -26,15 +26,13 @@ function LargeImage() {
   };
 
   return (
-    <div className="home-image-wrap">
+    <div className="home-image-wrap" id="home-image-wrap">
       <div className="home-image">
         <div className="home-image-text">
-          <h1>Expand Your Business Here.</h1>
-          <h4>
-            Hey! My name is Brady Kline and I am a front-end web developer. I
-            have a passion for creating visually appealing and user-friendly
-            websites that fit your designs and needs!
-          </h4>
+          <h1>
+            Hi! I'm <span style={{ color: "var(--color)" }}>Brady</span>.
+          </h1>
+          <h2>I am a Frontend Developer with a passion for web development.</h2>
         </div>
         <div className="home-image-image"></div>
       </div>

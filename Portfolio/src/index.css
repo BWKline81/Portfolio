@@ -12,7 +12,7 @@
   :root {
     --background-color: rgb(39, 39, 42);
     --box-background-color: rgb(51, 51, 58);
-    --color: rgb(4, 44, 164);
+    --color: rgb(3, 50, 190);
     --alt-color: rgb(4, 101, 160);
     --hovering-alt: rgb(255, 255, 255);
     --border-color: rgb(4, 44, 164);
@@ -120,9 +120,8 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.navbar ul li {
+  background-color: transparent;
+  border: none;
   text-decoration: none;
   color: var(--color);
   font-size: 1.5rem;
@@ -132,7 +131,7 @@ body {
     0 0 10px var(--alt-color);
 }
 
-.navbar ul li:hover {
+.navbar-link:hover {
   text-shadow: 0 0 2px var(--hovering-alt), 0 0 4px var(--hovering-alt),
     0 0 6px var(--hovering-alt), 0 0 8px var(--hovering-alt),
     0 0 10px var(--hovering-alt);
@@ -273,11 +272,11 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--color);
+  color: var(--loader-color);
   text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
     0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
     0 0 10px var(--alt-color);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   left: 10%;
   top: 25%;
   background-color: var(--box-background-color);
@@ -287,7 +286,7 @@ body {
   z-index: 3;
 }
 
-.home-image-text h4 {
+.home-image-text h2 {
   color: var(--loader-color) !important;
   margin-left: 2.5%;
 }
@@ -306,6 +305,83 @@ body {
   box-shadow: 2px 2px 10px var(--alt-color),
     30px 30px 0px var(--background-color);
   z-index: 3;
+}
+
+.home-image-text:hover {
+  scale: 1.05;
+  box-shadow: 3px 3px 10px var(--alt-color),
+    15px 15px 0px var(--background-color);
+}
+
+.home-image-image:hover {
+  scale: 1.05;
+  box-shadow: 3px 3px 10px var(--alt-color),
+    40px 30px 0px var(--background-color);
+}
+
+.home-image-text h1:hover {
+  cursor: default;
+  font-size: 3rem;
+}
+
+.home-image-text h2:hover {
+  cursor: default;
+  font-size: 2rem;
+}
+
+.about {
+  height: 60vh;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-header {
+  margin-top: 10%;
+  display: inline-block;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-header h2 {
+  color: var(--loader-color);
+  font-size: 2.5rem;
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.about p {
+  color: var(--loader-color);
+  font-size: 1.5rem;
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  text-align: center;
+}
+
+.about-header h2:hover {
+  scale: 1.2;
+  cursor: default;
+}
+
+.about p:hover {
+  scale: 1.1;
+  cursor: default;
+}
+
+.about-line:hover {
+  scale: 1.1;
 }
 /*Not Found Page*/
 
