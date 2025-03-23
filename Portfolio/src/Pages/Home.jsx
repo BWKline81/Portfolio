@@ -31,6 +31,7 @@ function Home() {
       <div className="Header-wrap" data-aos="fade-down">
         <Header />
       </div>
+      <LargeImage />
       <div className="Footer-wrap">
         <Footer />
       </div>
