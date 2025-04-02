@@ -2,7 +2,12 @@ import React, { useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { HomeContext, AboutContext } from "../Pages/Home";
+import {
+  HomeContext,
+  AboutContext,
+  ProjectsContext,
+  ContactContext,
+} from "../Pages/Home";
 
 function Header() {
   useEffect(() => {
@@ -11,6 +16,8 @@ function Header() {
 
   const homeRef = useRef(useContext(HomeContext));
   const aboutRef = useRef(useContext(AboutContext));
+  const projectsRef = useRef(useContext(ProjectsContext));
+  const contactRef = useRef(useContext(ContactContext));
 
   return (
     <div className="header-container dark-mode">
@@ -47,14 +54,28 @@ function Header() {
               </button>
             </li>
             <li>
-              <button className="navbar-link" to="/projects">
+              <button
+                className="navbar-link"
+                onClick={() =>
+                  projectsRef.current.projectsRef.current.scrollIntoView({
+                    behavior: "smooth",
+                  })
+                }
+              >
                 <i className="fa-solid fa-palette"></i>
                 Projects
               </button>
             </li>
 
             <li>
-              <button className="navbar-link" to="/contact">
+              <button
+                className="navbar-link"
+                onClick={() =>
+                  contactRef.current.contactRef.current.scrollIntoView({
+                    behavior: "smooth",
+                  })
+                }
+              >
                 <i className="fa-solid fa-phone"></i>
                 Contact
               </button>
