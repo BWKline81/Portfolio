@@ -1,5 +1,6 @@
 :root {
   --background-color: rgb(0, 0, 193);
+  --background-alternate: rgb(79, 112, 187);
   --box-background-color: rgb(70, 70, 219);
   --color: rgb(255, 255, 255);
   --alt-color: rgb(124, 124, 124);
@@ -11,8 +12,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: rgb(39, 39, 42);
+    --background-alternate: rgb(21, 21, 21);
     --box-background-color: rgb(51, 51, 58);
-    --color: rgb(4, 44, 164);
+    --color: rgb(3, 50, 190);
     --alt-color: rgb(4, 101, 160);
     --hovering-alt: rgb(255, 255, 255);
     --border-color: rgb(4, 44, 164);
@@ -54,7 +56,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 1;
+  z-index: 100000;
 }
 
 .header-container:hover {
@@ -120,9 +122,8 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-}
-
-.navbar ul li {
+  background-color: transparent;
+  border: none;
   text-decoration: none;
   color: var(--color);
   font-size: 1.5rem;
@@ -132,7 +133,7 @@ body {
     0 0 10px var(--alt-color);
 }
 
-.navbar ul li:hover {
+.navbar-link:hover {
   text-shadow: 0 0 2px var(--hovering-alt), 0 0 4px var(--hovering-alt),
     0 0 6px var(--hovering-alt), 0 0 8px var(--hovering-alt),
     0 0 10px var(--hovering-alt);
@@ -225,6 +226,170 @@ body {
   height: 100vh;
 }
 
+.home-image-wrap {
+  margin-top: 5%;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image {
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("../../public/HTML-Background.png");
+}
+
+.home-image-wrap:hover::before {
+  opacity: 1 !important;
+}
+
+.home-image-wrap::before {
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent 70%
+  );
+  border-radius: inherit;
+  content: "";
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 500ms !important;
+}
+
+.home-image-text {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--loader-color);
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  font-size: 1.3rem;
+  left: 10%;
+  top: 25%;
+  background-color: var(--box-background-color);
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px var(--alt-color);
+  padding: 5px;
+  z-index: 3;
+}
+
+.home-image-text h2 {
+  color: var(--loader-color) !important;
+  margin-left: 2.5%;
+}
+
+.home-image-image {
+  aspect-ratio: 1/1;
+  height: 60%;
+  left: 60%;
+  top: 20%;
+  position: absolute;
+  background: url("../../public/Gif.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px var(--alt-color),
+    30px 30px 0px var(--background-color);
+  z-index: 3;
+}
+
+.home-image-text:hover {
+  scale: 1.05;
+  box-shadow: 3px 3px 10px var(--alt-color),
+    15px 15px 0px var(--background-color);
+}
+
+.home-image-image:hover {
+  scale: 1.05;
+  box-shadow: 3px 3px 10px var(--alt-color),
+    40px 30px 0px var(--background-color);
+}
+
+.home-image-text h1:hover {
+  cursor: default;
+  font-size: 3rem;
+}
+
+.home-image-text h2:hover {
+  cursor: default;
+  font-size: 2rem;
+}
+
+.about {
+  height: 60vh;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-header,
+.project-header,
+.contact-header {
+  display: inline-block;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-header,
+.contact-header {
+  margin-top: 5%;
+}
+
+.about-header h2,
+.project-header h2,
+.contact-header h2 {
+  color: var(--loader-color);
+  font-size: 2.5rem;
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+
+.about p {
+  color: var(--loader-color);
+  font-size: 1.5rem;
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  text-align: center;
+}
+
+.about-header h2:hover,
+.project-header h2:hover {
+  scale: 1.2;
+  cursor: default;
+}
+
+.about p:hover {
+  scale: 1.1;
+  cursor: default;
+}
 /*Not Found Page*/
 
 .not-found-container {
@@ -380,6 +545,144 @@ body {
   height: 30%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.projects {
+  background-color: var(--background-alternate);
+  height: 100vh;
+  width: 100%;
+}
+
+/*Project*/
+.project-container {
+  width: 60%;
+  height: 60vh;
+  margin-top: 5%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--box-background-color);
+  border-radius: 10px;
+  box-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+}
+
+.project-image {
+  width: 60%;
+  height: 55%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  border-radius: 10px;
+}
+
+.project-image:hover {
+  box-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  cursor: pointer;
+  scale: 1.05;
+}
+
+.project-description {
+  width: 90%;
+  height: 33%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  line-height: 0.5;
+  justify-content: center;
+  align-items: center;
+  color: var(--loader-color);
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+}
+
+.product-description h1 {
+  height: 50%;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.product-description h3 {
+  height: 50%;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/*Contact*/
+.contact {
+  height: 100vh;
+  width: 100%;
+  margin-top: 0;
+}
+
+.contact-container {
+  width: 35%;
+  height: 60vh;
+  margin-top: 5%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--box-background-color);
+  border-radius: 10px;
+  box-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  text-align: center;
+}
+
+.contact-container ul {
+  padding: 0;
+}
+
+.contact-container li {
+  list-style-type: none;
+  color: var(--loader-color);
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  font-size: 1.75rem;
+}
+
+.contact-container i {
+  color: var(--loader-color);
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  font-size: 3.5rem;
+  margin-top: 5%;
+}
+
+.contact-container i:hover {
+  cursor: pointer;
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  font-size: 5rem;
+  color: var(--hovering-alt);
+}
+
+.contact-container li:hover {
+  text-shadow: 0 0 2px var(--alt-color), 0 0 4px var(--alt-color),
+    0 0 6px var(--alt-color), 0 0 8px var(--alt-color),
+    0 0 10px var(--alt-color);
+  scale: 1.1;
 }
 
 /*Loader*/
